@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Paper Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-gray-100 py-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Categorized Research Papers</h1>
+        {% for cat, files in categories.items() %}
+        <div class="bg-white p-6 rounded-xl shadow-md mb-4">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ cat }}</h2>
+            <ul class="list-disc pl-5">
+                {% for file in files %}
+                <li><a href="/download/{{ cat }}/{{ file }}" class="text-blue-500 hover:underline">{{ file }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+        <a href="/"
+            class="block text-center bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700 w-48 mx-auto">Upload
+            More Papers</a>
+    </div>
+</body>
+
+</html>
